@@ -8,15 +8,17 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = process.env.FRONTEND_URLS?.split(",") || [];
+const allowedOrigins = (process.env.FRONTEND_URLS || "")
+  .split(",")
+  .map((url) => url.trim().replace(/\/$/, "")); // remove trailing slash
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      console.log("🔍 Incoming origin:", origin);
-      console.log("✅ Allowed origins:", allowedOrigins);
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
+      if (!origin) return callback(null, true); // Allow Postman / curl
+
+      const cleanedOrigin = origin.replace(/\/$/, "");
+      if (allowedOrigins.includes(cleanedOrigin)) {
         callback(null, true);
       } else {
         console.warn("❌ Blocked CORS request from:", origin);
