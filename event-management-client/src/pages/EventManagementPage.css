@@ -1,0 +1,123 @@
+.event-management-page {
+  padding-top: var(--spacing-lg);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.create-panel,
+.events-panel {
+  background-color: var(--color-panel);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+  height: 600px;
+}
+
+.create-panel h1 {
+  color: var(--color-text-dark);
+  font-weight: bold;
+}
+
+.timezone-selector-container .input-with-icon {
+  width: 200px;
+}
+
+.no-events {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 50px 0;
+}
+
+.event-management-page {
+  padding-top: var(--spacing-lg);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--spacing-lg);
+}
+
+.create-panel,
+.events-panel {
+  background-color: var(--color-panel);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+  overflow-y: scroll;
+  max-height: 600px;
+}
+
+.page-title,
+h2 {
+  color: var(--color-text-dark);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.timezone-view {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.timezone-tag {
+  font-weight: bold;
+  color: var(--color-text-light);
+}
+
+.no-events {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 50px 0;
+}
+
+.user-prompt {
+  padding-top: var(--spacing-lg);
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+.events-panel-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.events-title {
+  margin-bottom: 0;
+}
+
+.view-timezone-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.view-timezone-label {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  font-weight: 500;
+}
+
+.view-timezone-wrapper .timezone-selector-root {
+  width: 200px;
+}

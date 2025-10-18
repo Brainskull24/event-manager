@@ -1,0 +1,48 @@
+:root {
+  /* Colors based on LIGHT Theme Snapshots */
+  --color-background-page: #f8f8fa; /* Near white background */
+  --color-panel: #ffffff; /* White panel backgrounds */
+  --color-text-dark: #333333; /* Dark text for readability */
+  --color-text-muted: #6a6a6a; /* Muted gray text */
+  --color-primary-purple: #6a49e6; /* Main button color (remains the same) */
+  --color-primary-hover: #5a3ed1;
+  --color-selection-bg: #e6e0f8; /* Light purple for list selection */
+  --color-selection-hover: #f0f0ff; /* Very light hover */
+  --color-border: #cccccc; /* Light gray border */
+  --color-input-bg: #f8f8fa; /* Input background */
+  --color-danger: #e64949;
+
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --border-radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--color-background-page);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0%;
+  padding: var(--spacing-lg);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+}

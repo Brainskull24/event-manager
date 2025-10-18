@@ -1,0 +1,115 @@
+.profile-dropdown-container {
+  position: relative;
+  z-index: 50;
+}
+
+.dropdown-trigger {
+  background-color: var(--color-panel);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  width: 300px;
+}
+
+.dropdown-icon::after {
+  content: "\21F5";
+  font-size: 1.1rem;
+  margin-left: var(--spacing-sm);
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  margin-top: 4px;
+  background-color: var(--color-panel);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.search-bar {
+  padding: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+}
+
+.profile-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: var(--spacing-sm) 0;
+}
+
+.profile-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  color: var(--color-text-light);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.profile-item:hover {
+  background-color: var(--color-selection-bg);
+}
+
+.profile-item.selected {
+  background-color: var(--color-selection-bg);
+  color: var(--color-text-light);
+}
+
+.check-mark {
+  color: var(--color-primary-purple);
+  margin-right: var(--spacing-sm);
+  font-weight: bold;
+}
+
+.no-results {
+  color: var(--color-text-muted);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.add-profile-section {
+  display: flex;
+  padding: var(--spacing-sm);
+  gap: 4px;
+  border-top: 1px solid var(--color-border);
+}
+
+.add-profile-section input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+}
+
+.add-button-inline {
+  background-color: var(--color-primary-purple);
+  color: white;
+  padding: 8px 15px;
+  font-weight: 600;
+}
+
+.add-button-inline:hover {
+  background-color: var(--color-primary-hover);
+}

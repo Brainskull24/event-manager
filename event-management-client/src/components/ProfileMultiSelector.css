@@ -1,0 +1,105 @@
+.profile-selector-container {
+  position: relative;
+}
+
+.profile-selector-display {
+  background-color: var(--color-input-bg);
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-border);
+  padding: 10px 12px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin-top: 4px;
+  background-color: var(--color-panel);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.search-bar {
+  padding: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-input-bg);
+  color: var(--color-text-dark);
+}
+
+.profile-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: var(--spacing-sm) 0;
+}
+
+.profile-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  color: var(--color-text-dark);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.1s;
+}
+
+.profile-item:hover {
+  background-color: var(--color-selection-hover);
+}
+
+.profile-item.selected {
+  background-color: var(--color-selection-bg);
+  color: var(--color-text-dark);
+}
+
+.check-mark {
+  width: 20px;
+  margin-right: var(--spacing-sm);
+  color: var(--color-primary-purple);
+}
+
+.add-profile-section {
+  display: flex;
+  padding: var(--spacing-sm);
+  gap: 4px;
+  border-top: 1px solid var(--color-border);
+}
+
+.add-profile-section input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-input-bg);
+  color: var(--color-text-dark);
+}
+
+.add-button-inline {
+  background-color: var(--color-primary-purple);
+  color: var(--color-panel);
+  padding: 8px 15px;
+  font-weight: 600;
+}
+
+.add-button-inline:hover {
+  background-color: var(--color-primary-hover);
+}

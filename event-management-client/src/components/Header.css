@@ -1,0 +1,79 @@
+.app-header {
+  background-color: var(--color-panel);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-text-dark);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 8px;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text-dark); /* Dark title */
+}
+
+.logo-description {
+  font-size: 0.75rem;
+  color: var(--color-text-muted); /* Muted description */
+}
+
+.user-controls {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  width: 30%;
+  justify-content: end;
+}
+
+.user-select-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.user-select-container label {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.profile-dropdown,
+.profile-creation input {
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  appearance: none; /* Hide default dropdown arrow */
+  min-width: 150px;
+}
+
+.add-button {
+  background-color: var(--color-primary-purple);
+  color: var(--color-text-light);
+  padding: 8px 12px;
+  margin-left: var(--spacing-sm);
+}
+
+.add-button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.profile-creation {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.user-controls {
+  display: flex;
+  align-items: center;
+}
