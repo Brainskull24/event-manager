@@ -10,8 +10,8 @@ const app = express();
 
 app.use(
   cors({
-    // origin: "https://skai-lama-assignment.vercel.app",
-    origin: "http://localhost:5173",
+    origin: "https://skai-lama-assignment.vercel.app",
+    // origin: "http://localhost:5173",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
