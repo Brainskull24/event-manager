@@ -1,5 +1,6 @@
 const Event = require("../models/Event");
 const EventLog = require("../models/EventLog");
+const Profile = require("../models/Profile");
 
 const validateDates = (startTime, endTime) => {
   return new Date(endTime) >= new Date(startTime);
@@ -82,7 +83,9 @@ exports.updateEvent = async (req, res) => {
       return res.status(404).json({ message: "Event not found." });
     }
 
-    const changes = generateLogChanges(oldEvent, req.body);
+    const allProfiles = await Profile.find({}, "name");
+
+    const changes = generateLogChanges(oldEvent, req.body, allProfiles);
 
     const updatedEvent = await Event.findByIdAndUpdate(
       eventId,
@@ -126,9 +129,19 @@ exports.getEventLogs = async (req, res) => {
   }
 };
 
-const generateLogChanges = (oldEvent, newPayload) => {
+const generateLogChanges = (oldEvent, newPayload, allProfiles) => {
+  // <--- ACCEPT ALL PROFILES
   const changes = [];
   const fieldsToTrack = ["profiles", "eventTimezone", "startTime", "endTime"];
+
+  // Helper to resolve name from ID
+  const resolveName = (profileId) => {
+    const profile = allProfiles.find(
+      (p) => p._id.toString() === profileId.toString()
+    );
+    console.log("Resolving profile ID:", profileId, "to name:", profile ? profile.name : "Unknown Profile");
+    return profile ? profile.name : "Unknown Profile";
+  };
 
   for (const field of fieldsToTrack) {
     const oldValue = oldEvent[field];
@@ -139,14 +152,13 @@ const generateLogChanges = (oldEvent, newPayload) => {
       const newIds = newValue.map((id) => id.toString()).sort();
 
       if (JSON.stringify(oldIds) !== JSON.stringify(newIds)) {
-        const oldNames = oldValue
-          .map((p) => p.name || "ID: " + p.toString())
-          .join(", ");
-        const newNames = newPayload.profiles
-          .map((p) => p.name || "ID: " + p)
-          .join(", ");
+        // Resolve names for the OLD set of IDs
+        const oldNames = oldIds.map(resolveName).join(", ");
+        // Resolve names for the NEW set of IDs
+        const newNames = newIds.map(resolveName).join(", ");
+
         changes.push({
-          message: `Profiles changed from [${oldNames}] to [${newNames}]`,
+          message: `Assigned profiles changed from [${oldNames}] to [${newNames}]`, // <--- FIX MESSAGE
         });
       }
     } else if (field === "startTime" || field === "endTime") {
