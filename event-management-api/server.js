@@ -8,25 +8,12 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = (process.env.FRONTEND_URLS || "")
-  .split(",")
-  .map((url) => url.trim().replace(/\/$/, "")); // remove trailing slash
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // Allow Postman / curl
-
-      const cleanedOrigin = origin.replace(/\/$/, "");
-      if (allowedOrigins.includes(cleanedOrigin)) {
-        callback(null, true);
-      } else {
-        console.warn("❌ Blocked CORS request from:", origin);
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "https://skai-lama-assignment.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
