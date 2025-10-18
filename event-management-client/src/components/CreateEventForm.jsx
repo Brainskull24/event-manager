@@ -81,8 +81,7 @@ const CreateEventForm = ({ eventToEdit, onComplete }) => {
 
     try {
       if (eventToEdit) {
-        await updateEvent(eventToEdit._id, payload);
-        toast.success("Event updated successfully!");
+        await updateEvent(eventToEdit._id, payload); 
       } else {
         await createEvent(payload);
         toast.success("Event created successfully!");

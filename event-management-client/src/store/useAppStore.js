@@ -3,7 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const api = axios.create({
-  baseURL: "http://localhost:5002/api",
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 const useAppStore = create((set, get) => ({
@@ -60,19 +60,20 @@ const useAppStore = create((set, get) => ({
     }
   },
   updateEvent: async (eventId, eventData) => {
-    const promise = api.put(`/events/${eventId}`, eventData);
-
-    toast.promise(promise, {
-      loading: "Updating event...",
-      success: "Event updated successfully!",
-      error: (err) => err.response?.data?.message || "Failed to update event",
-    });
-
     try {
-      const res = await promise;
+      toast.loading("Updating event...");
+
+      const res = await api.put(`/events/${eventId}`, eventData);
+
+      toast.dismiss(); // remove the loading toast
+      toast.success("Event updated successfully!");
+
       get().fetchEvents(get().currentUser._id);
+
       return res.data;
     } catch (error) {
+      toast.dismiss(); // remove the loading toast
+      toast.error(error.response?.data?.message || "Failed to update event");
       throw error;
     }
   },

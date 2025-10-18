@@ -2,9 +2,10 @@ import React from "react";
 import useAppStore from "../store/useAppStore";
 import CreateEventForm from "../components/CreateEventForm";
 import EventCard from "../components/EventCard";
+import TimezoneSelector from "../components/TimezoneSelector";
 import "./EventManagementPage.css";
 import "../components/FormStyles.css";
-import TimezoneSelector from "../components/TimezoneSelector";
+
 
 const EventManagementPage = () => {
   const currentUser = useAppStore((state) => state.currentUser);

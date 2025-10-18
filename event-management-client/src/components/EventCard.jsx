@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faFileLines } from "@fortawesome/free-solid-svg-icons";
 
 const EventCard = ({ event, viewerTimezone }) => {
-  const profiles = useAppStore((state) => state.profiles);
   const fetchEventLogs = useAppStore((state) => state.fetchEventLogs);
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -70,7 +69,7 @@ const EventCard = ({ event, viewerTimezone }) => {
       </div>
 
       {/* ACTIONS */}
-      <div className="card-actions w-full grid grid-cols-2">
+      <div className=" w-full grid grid-cols-2 card-actions">
         <button onClick={() => setIsEditModalOpen(true)} className="edit-btn">
           <FontAwesomeIcon icon={faEdit} className="button-icon" />{" "}
           {/* <--- EDIT ICON */}
